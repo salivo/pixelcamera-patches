@@ -1,0 +1,65 @@
+--- a/smali_classes2/kdt.smali
++++ b/smali_classes2/kdt.smali
+@@ -60,7 +60,7 @@
+
+ # virtual methods
+ .method public final a()Luyx;
+-    .locals 5
++    .locals 8
+
+     new-instance v0, Luzk;
+
+@@ -98,6 +98,53 @@
+     goto :goto_0
+
+     :cond_2
++    iget-object v5, p0, Lkdt;->b:Landroid/location/LocationManager;
++
++    if-eqz v5, :cond_6
++
++    const/4 v6, 0x0
++
++    :goto_1
++    const/4 v3, 0x2
++
++    if-ge v6, v3, :cond_6
++
++    iget-object v2, p0, Lkdt;->c:[Lkds;
++
++    aget-object v2, v2, v6
++
++    iget-object v7, v2, Lkds;->c:Ljava/lang/String;
++
++    const/4 v4, 0x0
++
++    :try_start_0
++    invoke-virtual {v5, v7}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
++
++    move-result-object v4
++    :try_end_0
++    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
++    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
++
++    goto :goto_2
++
++    :catch_0
++    move-exception v2
++
++    const/4 v4, 0x0
++
++    :goto_2
++    if-eqz v4, :cond_5
++
++    invoke-virtual {v0, v4}, Luzk;->d(Ljava/lang/Object;)Z
++
++    return-object v0
++
++    :cond_5
++    add-int/lit8 v6, v6, 0x1
++
++    goto :goto_1
++
++    :cond_6
+     invoke-virtual {v0, v4}, Luzk;->d(Ljava/lang/Object;)Z
+
+     return-object v0

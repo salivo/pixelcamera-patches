@@ -1,0 +1,11 @@
+--- a/smali/kdx.smali
++++ b/smali/kdx.smali
+@@ -70,7 +70,5 @@
+
+     move-result v2
+
+-    if-eqz v2, :cond_7
+-
+     const-string v2, "connectLocationProvider"
+
+     invoke-interface {v0, v2}, Lqom;->f(Ljava/lang/String;)V

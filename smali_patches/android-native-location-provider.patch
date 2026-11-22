@@ -1,0 +1,10 @@
+--- a/smali/kdx.smali
++++ b/smali/kdx.smali
+@@ -85,7 +85,7 @@
+
+     const/4 v4, 0x1
+
+-    if-nez v0, :cond_6
++    goto :cond_6
+
+     sget-object v0, Lkdr;->a:Lufn;

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "patches": [
+    {
+      "name": "Use Android location instead of Google Play Services",
+      "description": "Forces photo/video geotagging to read location from the system LocationManager (GPS + network providers) instead of the Google Play Services Fused Location Provider, even when Play Services is installed and the device's \"Use Google's location service\" setting is on. Also falls back to the last known cached fix (approximate) when no fresh live fix has arrived yet.",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.GoogleCamera",
+          "name": "Pixel Camera",
+          "description": "Native Android location for geotagging instead of Google Play Services",
+          "apkFileType": "APK_REQUIRED",
+          "appIconColor": "#4285F4",
+          "targets": [
+            {
+              "version": "10.4.117.936816638.14",
+              "versionCodes": [
+                69481630
+              ],
+              "isExperimental": false,
+              "minSdk": 37,
+              "description": "Official Pixel Camera 10.4.117.936816638.14 APKM bundle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
